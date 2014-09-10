@@ -1,0 +1,11 @@
+{
+    "OpenSofeBuilder":[
+        {
+        "key":"Ctrl-I"
+        },
+        {
+        "key": "Cmd-Opt-I",
+        "platform": "mac"
+        }
+    ]
+}

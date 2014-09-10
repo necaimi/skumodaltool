@@ -1,0 +1,11 @@
+{
+    "name": "skubuilder",
+    "title": "skubuilder Toolkit",
+    "description": "An extension to work easier.",
+    "version": "1.0.0",
+    "author": "na",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.40.0"
+    }
+}
