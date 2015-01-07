@@ -1,8 +1,10 @@
 {
-    "Ok":"替换",
+    "Ok":{"title":"替换SysNo", "tips":"点击即可替换html代码中zcode类内容的SysNo（默认当前视图）"},
     "Cancel":"取消",
+    "Find":{"title":"ID清洗", "tips":"多余ID清洗，需先在商品ID框中录入ID，点击后商品ID框显示专题在线ID（默认当前视图）"},
+    "Check":{"title":"ID排重", "tips":"在商品ID框中录入ID，点击按钮排重"},
     "Title":"Sofe Builder",
-    "Version":"V1.0.0",
+    "Version":"V1.0.0.1",
     "SysID":"商品ID",
     "Description":"说明"
 }

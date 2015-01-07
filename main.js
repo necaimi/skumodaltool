@@ -24,11 +24,12 @@ define(function(require, exports, module){
         SofeBuilderTemplate = require("text!htmlContent/sofebuilder-dialog.html");
     
         
-     var $dialog, $SysIDS;
+     var $dialog, $SysIDS, $btfind, $btcheck, $dtips, $repbt;
     function handleSofeBuilderDialog()
     {
        
         var template = Mustache.render(SofeBuilderTemplate,  {Strings: UIText});
+        
         Dialogs.showModalDialogUsingTemplate(template).done(function(id){
             if(id === Dialogs.DIALOG_BTN_OK)
             {
@@ -37,14 +38,50 @@ define(function(require, exports, module){
  
                 var builder = new ZBuilderManager(cur_text,ztCode);
                 SetCurrentDocText(builder.GetResult());
-                
             }
+ 
         });
         
         $dialog = $('.sofebuilder.instance');
         $SysIDS = $dialog.find("#SysIDS");
-     
+        $btfind = $dialog.find("[data-button-id='find']");
+        $btcheck= $dialog.find("[data-button-id='check']");
+        $dtips  = $dialog.find("#dtips");
+        $repbt  = $dialog.find("[data-button-id='ok']");
+        $btfind.on("click", function(e){
+            if(e.button == 0){
+             var cur_text = GetCurrentDocText(),
+                    arrys = GetSysCodeByZt(cur_text);   ///ids string;
+                    SetSysZcode(arrys.join(","));
+            }
+        }).on("mouseenter", function(e){
+            
+            tipani(function(){$dtips.text(UIText.Find.tips);});
+        });
+        
+        $btcheck.on("click", function(e){
+            if(e.button == 0){
+             var _zcode = GetSysZcode();
+                SetSysZcode(_zcode.Recheck(_zcode.GetZCode()));
+            }
+        }).on("mouseenter", function(e){
+            
+             tipani(function(){ $dtips.text(UIText.Check.tips);});
+        });
+        
+        $repbt.on("mouseenter", function(e){
+              
+              tipani(function(){$dtips.text(UIText.Ok.tips);});
+        });
+        
+        
     };
+    
+    function tipani(cfn){
+        $dtips.hide();
+        cfn();
+        $dtips.stop(true, false).fadeTo(500, 1.0);
+    }
              
      var currentDoc = null;
     
@@ -65,6 +102,16 @@ define(function(require, exports, module){
         var array_ids = $SysIDS[0].value;
         var ztCode = new ZCodeManager(array_ids);
         return ztCode;
+    };
+    
+    function SetSysZcode(ids){
+        $SysIDS.val(ids);
+    };
+    
+    function GetSysCodeByZt(txt){
+        var ztCodeid = GetSysZcode();
+        var ztCode = new ZCodeManager();
+        return ztCode.getTxt(txt, ztCodeid.GetZCode());
     };
     
     CommandManger.register(MENU_NAME, COMMAND_ID, handleSofeBuilderDialog);

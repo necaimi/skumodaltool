@@ -22,7 +22,7 @@ define(function(require, exports, module){
 	if(targetsobj.length == 0)
 	return;
 	
-        console.debug(zt);
+    
 	   zcode_array =  zt.GetZCode();
 		
 		targetsobj.each(function(index, element) {
