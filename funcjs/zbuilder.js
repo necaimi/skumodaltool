@@ -35,7 +35,7 @@ define(function(require, exports, module){
 	
 	this.GetResult = function()
 	{
-		return m_srcobj.html();
+		return m_srcobj.html().replace(/<img.+["'\s]>/g, "/>");
 	};
 	
 	function SetSysNo(i, e)
