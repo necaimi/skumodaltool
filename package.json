@@ -2,7 +2,7 @@
     "name": "skumodaltool",
     "title": "Sku Modal Tool",
     "description": "work easily.",
-    "version": "1.0.2.0812",
+    "version": "1.0.2-0812-release",
     "author": "na<308048801@qq.com>",
     "engines": {
         "brackets": ">=0.40.0"
