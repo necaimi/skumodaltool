@@ -2,12 +2,9 @@
     "name": "skubuilder",
     "title": "skubuilder Toolkit",
     "description": "An extension to work easier.",
-    "version": "1.0.2812-release",
+    "version": "1.0.0",
     "author": "na",
-    "keywords":[
-        "work tool",
-        "sku replace"
-    ],
+    "license": "MIT",
     "engines": {
         "brackets": ">=0.40.0"
     }
