@@ -1,6 +1,23 @@
 // JavaScript Document
 // [SysNo_ProductLink] [NSysNo_Src] [SysNo_ProductName] [SysNo_CurrentPrice] [SysNo_OldPrice]...
 
+
+function standardClosure(src, ele){
+    
+    var _regx = new RegExp("<"+ ele +"+.+['\"\s]>", "g");
+    var _poss = src.match(_regx);
+    if(_poss.length != 0){
+        
+        for(var itr = 0, _len = _poss.length; itr < _len; itr++){
+            var _des = _poss[itr].replace(">", "/>");
+            src = src.replace(_poss[itr], _des);
+        }
+    }
+ 
+    return src;
+}
+
+
 define(function(require, exports, module){
     "use strict";
    
@@ -16,7 +33,7 @@ define(function(require, exports, module){
 	if(typeof(zt) != "object")
 	return;
 
-
+        
 	var targetsobj = m_srcobj.find('.zcode');
 	
 	if(targetsobj.length == 0)
@@ -35,7 +52,7 @@ define(function(require, exports, module){
 	
 	this.GetResult = function()
 	{
-		return m_srcobj.html().replace(/<img.+["'\s]>/g, "/>");
+		return m_srcobj.html();
 	};
 	
 	function SetSysNo(i, e)

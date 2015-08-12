@@ -37,7 +37,7 @@ define(function(require, exports, module){
                 var ztCode = GetSysZcode();
  
                 var builder = new ZBuilderManager(cur_text,ztCode);
-                SetCurrentDocText(builder.GetResult());
+                SetCurrentDocText(standardClosure(builder.GetResult(), "img"));
             }
  
         });
