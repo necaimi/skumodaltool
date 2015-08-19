@@ -61,7 +61,7 @@ define(function(require, exports, module){
 		return;
 		
 		var cur_Target_text = e.html();
-		cur_Target_text = cur_Target_text.replace(/SysNo/g, zcode_array[i]);
+		cur_Target_text = cur_Target_text.replace(/SysNo(?!_)/g, zcode_array[i]);
 		e.html(cur_Target_text);
 		
 	};

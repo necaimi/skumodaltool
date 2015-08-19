@@ -1,8 +1,8 @@
 {
     "name": "skumodaltool",
     "title": "Sku Modal Tool",
-    "description": "work easily.",
-    "version": "1.0.2-0812-release",
+    "description": "work easily.  1.0.3 replace onclick with onClick",
+    "version": "1.0.3-0819-release",
     "author": "na<308048801@qq.com>",
     "engines": {
         "brackets": ">=0.40.0"
